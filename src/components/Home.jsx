@@ -10,11 +10,11 @@ const Home = () => {
           Adrian Ricken
         </h1>
         <h2 className="text-4xl sm:text-7xl font-bold text-[#8892b0]">
-          i'm an aspiring Full Stack Developer
+          i&apos;m an aspiring Full Stack Developer
         </h2>
         <p className="text-[#8892b0] py-4 max-w-[700px]">
-          Some more text information about me what i've done where i come from
-          and what i aim for. I like to do this and that and tell some more
+          Some more text information about me what i&apos;ve done where i come
+          from and what i aim for. I like to do this and that and tell some more
           stuff about me so you can get to know me better.
         </p>
         <div>
