@@ -14,7 +14,7 @@ const Header = () => {
           />
         </a>{" "}
         <nav className="flex w-full">
-          <div className="w-full relative z-2 flex flex-col items-center justify-around m-auto flex-row">
+          <div className="w-full relative z-2 flex flex-col items-center justify-around m-auto">
             <a
               href="#"
               className="block relative font-code text-2xl uppercase text-n-1 transition-opacity duration-300 hover:opacity-20"
