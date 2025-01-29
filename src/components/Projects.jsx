@@ -1,15 +1,11 @@
 // import WorkImg from "../assets/"
-import Test from "../assets/test.png";
 
-const Experience = () => {
+const Projekte = () => {
   return (
-    <div
-      name="experience"
-      className="w-full md:h-screen bg-[#0a192f] text-gray-300"
-    >
+    <div name="projects" className="w-full md:h-screen text-gray-300">
       <div className="max-w-[1000px] mx-auto p-4 flex flex-col justify-center w-full h-full">
         <div className="pb-8">
-          <p className="text-4xl font-bold inline border-b-4 text-gray-300 border-pink-600">
+          <p className="text-4xl font-bold inline border-b-4 text-gray-300 border-[var(--highlight-color)]">
             Experience
           </p>
           <p className="py-6">
@@ -21,7 +17,7 @@ const Experience = () => {
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
           {/* grid item */}
           <div
-            style={{ backgroundImage: `url(${Test})` }}
+            // style={{ backgroundImage: `url(${})` }}
             className=" bg-[#ffffff] shadow-lg shadow-[#040c16] group container rounded-md flex justify-center items-center mx-auto content-div"
           >
             {/* hover effects */}
@@ -120,4 +116,4 @@ const Experience = () => {
   );
 };
 
-export default Experience;
+export default Projekte;

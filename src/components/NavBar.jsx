@@ -1,24 +1,38 @@
-import { useState } from "react";
-import { FaBars, FaTimes, FaGithub, FaLinkedin } from "react-icons/fa";
-import { HiOutlineMail } from "react-icons/hi";
-import { BsFillPersonLinesFill } from "react-icons/bs";
-import Logo from "../assets/logo.png";
+import { useState, useEffect } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-scroll";
+import Logo from "../assets/logo_darkmode.png";
 
 const NavBar = () => {
   const [nav, setNav] = useState(false);
+  const [hasShadow, setHasShadow] = useState(false);
+
   const handleClick = () => setNav(!nav);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setHasShadow(true);
+      } else {
+        setHasShadow(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div
-      className="fixed w-full h-[80px] flex justify-between items-center px-4 bg-[#0a192f]
-      text-gray-300"
+      className={`fixed w-full h-[80px] flex justify-between items-center px-4 backdrop-blur-sm text-gray-300 z-50 transition-shadow duration-300 ${
+        hasShadow ? "shadow-md" : ""
+      }`}
     >
       <div>
         <img src={Logo} alt="Logo Image" className="w-[50px]" />
       </div>
 
-      {/* menu */}
+      {/* Menu */}
       <ul className="hidden md:flex">
         <li>
           <Link to="home" smooth={true} duration={500}>
@@ -36,8 +50,8 @@ const NavBar = () => {
           </Link>
         </li>
         <li>
-          <Link to="experience" smooth={true} duration={500}>
-            Experience
+          <Link to="projects" smooth={true} duration={500}>
+            Projekte
           </Link>
         </li>
         <li>
@@ -66,11 +80,9 @@ const NavBar = () => {
           </Link>
         </li>
         <li className="py-6 text-4xl">
-          <li>
-            <Link onClick={handleClick} to="about" smooth={true} duration={500}>
-              About
-            </Link>
-          </li>
+          <Link onClick={handleClick} to="about" smooth={true} duration={500}>
+            About
+          </Link>
         </li>
         <li className="py-6 text-4xl">
           <Link onClick={handleClick} to="skills" smooth={true} duration={500}>
@@ -78,7 +90,6 @@ const NavBar = () => {
           </Link>
         </li>
         <li className="py-6 text-4xl">
-          {" "}
           <Link
             onClick={handleClick}
             to="experience"
@@ -94,46 +105,11 @@ const NavBar = () => {
           </Link>
         </li>
       </ul>
-
-      {/* Social icons */}
-      <div className="hidden lg:flex fixed flex-col top-[35%] left-0">
-        <ul>
-          <li className="w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-blue-600">
-            <a
-              className="flex justify-between items-center w-full text-gray-300"
-              href="/"
-            >
-              LinkedIn <FaLinkedin size={30} />
-            </a>
-          </li>
-          <li className="w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-[#333333]">
-            <a
-              className="flex justify-between items-center w-full text-gray-300"
-              href="/"
-            >
-              Github <FaGithub size={30} />
-            </a>
-          </li>
-          <li className="w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-[#6fc2b0]">
-            <a
-              className="flex justify-between items-center w-full text-gray-300"
-              href="/"
-            >
-              Mail <HiOutlineMail size={30} />
-            </a>
-          </li>
-          <li className="w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-[#565f69]">
-            <a
-              className="flex justify-between items-center w-full text-gray-300"
-              href="/"
-            >
-              Resume <BsFillPersonLinesFill size={30} />
-            </a>
-          </li>
-        </ul>
-      </div>
     </div>
   );
 };
 
 export default NavBar;
+
+// link to CV:
+// https://app.enhancv.com/share/7c236387/?utm_medium=growth&utm_campaign=share-resume&utm_source=dynamic

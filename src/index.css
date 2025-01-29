@@ -1,15 +1,34 @@
 @import "tailwindcss";
-
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@0,300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap");
 
 @layer base {
   body {
-    @apply font-[Raleway];
+    @apply font-[Montserrat];
   }
   li {
     @apply px-4;
     @apply cursor-pointer;
   }
+}
+
+:root {
+  --bg-color: #bfaeb3;
+  --text-color-dark: #403a35;
+  --text-color-light: #ffffff;
+  --highlight-color: #ffe600;
+}
+
+[data-theme="dark"] {
+  --bg-color: #403a35;
+  --text-color-dark: #bfaeb3;
+  --text-color-light: #ffffff;
+  --highlight-color: #0026ff;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color-dark);
+  transition: all 0.3s ease-in-out;
 }
 
 .content-div {
